@@ -1,4 +1,4 @@
-package demo1;
+package auto.test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,63 +11,51 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
+import auto.page.BasePage;
+import auto.page.DragDropPage;
 
 public class BaseTest {
+	private WebDriver driver;
 
-	protected WebDriver driver;
-	
-	@BeforeClass
+	protected BasePage basePage;
+	protected DragDropPage dragDropPage;
+
+	@BeforeClass // run before all test cases
 	public static void beforeAll() {
-		// TODO Auto-generated method stub
 		System.setProperty("webdriver.chrome.driver", "/Users/phuongnguyen/Documents/drivers/chromedriver");
+
 	}
-	
+
 	@Before
 	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "/Users/phuongnguyen/Documents/drivers/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-	}
-	
-	public void wait(int seconds) {
-		try {
-			Thread.sleep(seconds * 1000);
-		} catch ( InterruptedException e) {
-			e.printStackTrace();
-			// TODO: handle exception
-		}
-		
-		
-	}
-	
-	@AfterClass
-	public static void afterAll() {
-		// TODO Auto-generated method stub
+		basePage = new BasePage(driver);
 
 	}
-	
-	@After
-	public void teardown() {
-		if (driver!=null) {
-			driver.quit();
-		}
-		
-	}
-	
-	protected WebElement findElement (By by) {
+
+	protected WebElement findElement(By by) {
 		try {
 			return driver.findElement(by);
-			
 		} catch (Exception e) {
-			// TODO: handle exception
-			
+			System.out.print(e);
 			return null;
-			
 		}
-		
+	}
+
+	@AfterClass
+	public static void afterAll() {
+	}
+
+	@After
+	public void teardown() {
+		if (driver != null) {
+			driver.quit();
+		}
+
 	}
 
 }
