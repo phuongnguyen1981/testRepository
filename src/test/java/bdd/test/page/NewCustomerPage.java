@@ -10,11 +10,11 @@ public class NewCustomerPage extends BasePage {
 
 	public void createCustomer() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String getCustomerId() {
-String customerID = null; //getCustomer Id
+		String customerID = null; // getCustomer Id
 		return customerID;
 	}
 
