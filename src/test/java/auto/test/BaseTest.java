@@ -11,13 +11,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import auto.page.BasePage;
-import auto.page.DragDropPage;
+import bdd.test.page.HomePage;
+import bdd.test.page.NewAccountPage;
+import bdd.test.page.BasePage;
+import bdd.test.page.DragDropPage;
+import bdd.test.page.NewCustomerPage;
 
 public class BaseTest {
 	private WebDriver driver;
 
 	protected BasePage basePage;
+	protected HomePage homePage;
+	protected NewAccountPage newAccountPage;
+	protected NewCustomerPage newCustomerPage;
 	protected DragDropPage dragDropPage;
 
 	@BeforeClass // run before all test cases
