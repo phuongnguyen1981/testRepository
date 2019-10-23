@@ -1,7 +1,8 @@
-package auto.page;
+package bdd.test.page;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.jbehave.core.annotations.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,6 +43,7 @@ public class BasePage {
 		assertNotNull("Element " + name + "should be in the view", webElement);
 	}
 
+	@Given ("I navigate '$url")
 	public void navigate(String url) {
 		driver.get(url);
 		
@@ -51,4 +53,6 @@ public class BasePage {
 		Actions action = new Actions(driver);
 		action.dragAndDrop(sourceElement, targetElement).build().perform();
 	}
+	
+	
 }
