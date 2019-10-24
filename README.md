@@ -1,2 +1,2 @@
-# testRepository
-# testRepository
+-Dmetafilter="-skip"
+mvn serenity:aggregate
