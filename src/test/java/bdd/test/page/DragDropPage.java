@@ -30,9 +30,7 @@ public class DragDropPage extends BasePage{
 //		
 //		dragAndDrop(sourceElement, targetElement);
 //	}
-	public DragDropPage(WebDriver driver) {
-		super(driver);
-	}
+	
 
 	private String sourceBtn = "//li[@id=\"fourth\"]/*[normalize-space(text())=\"%s\"]";
 	private String targetBox = "//*[normalize-space(text())=\"%s SIDE\"]/following-sibling::*//*[normalize-space(text())=\"%s\"]/following-sibling::*//*[contains(@class,\"ui-droppable\")]";
